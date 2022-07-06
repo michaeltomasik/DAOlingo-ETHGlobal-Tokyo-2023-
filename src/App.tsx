@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import "./App.css";
 
 import {
@@ -10,8 +10,11 @@ import {
 } from "@huddle01/huddle01-iframe";
 
 function App() {
+  const [walletAddress, setWalletAddress] = useState("");
+
   const iframeConfig: IframeConfig = {
     roomUrl: "http://localhost:3000/test-room",
+    // roomUrl: "https://kakashi.huddle01.com/test-room",
     height: "600px",
     width: "80%",
   };
@@ -50,7 +53,7 @@ function App() {
           <br />
 
           {Object.keys(huddleIframeApp.methods)
-            .filter((key) => key !== "sendReaction")
+            .filter((key) => !["sendReaction", "connectWallet"].includes(key))
             .map((key) => (
               <button
                 onClick={() => {
@@ -71,6 +74,19 @@ function App() {
             {reaction}
           </button>
         ))}
+
+        <input
+          type="text"
+          value={walletAddress}
+          onChange={(e) => setWalletAddress(e.target.value)}
+          placeholder="Wallet Address"
+        />
+
+        <button
+          onClick={() => huddleIframeApp.methods.connectWallet(walletAddress)}
+        >
+          Connect Wallet
+        </button>
       </div>
     </div>
   );
