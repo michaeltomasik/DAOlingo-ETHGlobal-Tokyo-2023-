@@ -56,6 +56,7 @@ function App() {
             .filter((key) => !["sendReaction", "connectWallet"].includes(key))
             .map((key) => (
               <button
+                key={key}
                 onClick={() => {
                   huddleIframeApp.methods[key as HuddleClientMethodName]();
                 }}
@@ -69,6 +70,7 @@ function App() {
         <br />
         {reactions.map((reaction) => (
           <button
+            key={reaction}
             onClick={() => huddleIframeApp.methods.sendReaction(reaction)}
           >
             {reaction}
