@@ -13,8 +13,7 @@ function App() {
   const [walletAddress, setWalletAddress] = useState("");
 
   const iframeConfig: IframeConfig = {
-    roomUrl: "http://localhost:3000/test-room",
-    // roomUrl: "https://kakashi.huddle01.com/test-room",
+    roomUrl: "https://iframe.huddle01.com/test-room",
     height: "600px",
     width: "80%",
   };
