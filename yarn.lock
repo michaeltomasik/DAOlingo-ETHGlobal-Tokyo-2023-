@@ -290,10 +290,10 @@
   dependencies:
     "@jridgewell/trace-mapping" "0.3.9"
 
-"@huddle01/huddle01-iframe@^0.0.1":
-  version "0.0.1"
-  resolved "https://registry.yarnpkg.com/@huddle01/huddle01-iframe/-/huddle01-iframe-0.0.1.tgz#92aaa7ccbd35665e074d99cc026ae92b6a0ee1fa"
-  integrity sha512-6hO4cAT41Jacjgnx8xbwhjBVqyy9bqrC7m1M+Wwow7IA5cQ6RTmha59rwUOEl43gsvCA+NCuWY1PxxAxpcalvQ==
+"@huddle01/huddle01-iframe@^0.0.8":
+  version "0.0.8"
+  resolved "https://registry.yarnpkg.com/@huddle01/huddle01-iframe/-/huddle01-iframe-0.0.8.tgz#b1f9f1b5545575c4234baa1f0af943e27da04e64"
+  integrity sha512-UitrTEZZqm0X9ju/v5UiMUNoRzRay+ssXwYPbwS0GtwmhGvKJWSSoy6YHqMztm4udaeoTPxV+xncGdh4R+IKnQ==
 
 "@jridgewell/gen-mapping@^0.1.0":
   version "0.1.1"

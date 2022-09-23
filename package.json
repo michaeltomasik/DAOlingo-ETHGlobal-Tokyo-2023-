@@ -9,7 +9,7 @@
     "commit": "git-cz"
   },
   "dependencies": {
-    "@huddle01/huddle01-iframe": "^0.0.1",
+    "@huddle01/huddle01-iframe": "^0.0.8",
     "react": "^18.0.0",
     "react-dom": "^18.0.0"
   },
