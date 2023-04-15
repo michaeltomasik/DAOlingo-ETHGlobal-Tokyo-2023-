@@ -1,6 +1,6 @@
 .App {
   text-align: center;
-  background-color: #282c34;
+  background-color: #ffff;
   height: 100vh;
   display: grid;
   place-items: center;
@@ -11,14 +11,19 @@
 }
 
 button {
-  background: #246bfd;
   color: white;
   border: none;
   padding: 0.5rem 0.75rem;
   margin: 0.75rem 0.5rem;
-  border-radius: 0.25rem;
   font-weight: bold;
   cursor: pointer;
+
+  background: #DD0A4A 0% 0% no-repeat padding-box;
+  border-radius: 34px;
+  opacity: 1;
+  width: 411px;
+  height: 97px;
+  font: oblique normal 900 50px/68px Avenir;
 }
 
 button:hover {

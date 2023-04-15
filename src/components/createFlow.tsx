@@ -10,107 +10,17 @@ import {
 } from "react-bootstrap";
 import { ethers } from "ethers";
 
+import { deleteExistingFlow, createNewFlow } from "../utils";
+import { superTokenName } from "../consts";
+
 let account;
 
-//where the Superfluid logic takes place
-async function deleteExistingFlow(recipient) {
-  const provider = new ethers.providers.Web3Provider(window.ethereum);
-  await provider.send("eth_requestAccounts", []);
-
-  const signer = provider.getSigner();
-
-  const chainId = await window.ethereum.request({ method: "eth_chainId" });
-  const sf = await Framework.create({
-    chainId: Number(chainId),
-    provider: provider
-  });
-
-  const superSigner = sf.createSigner({ signer: signer });
-
-  console.log(signer);
-  console.log(await superSigner.getAddress());
-  const daix = await sf.loadSuperToken("fDAIx");
-
-  console.log(daix);
-
-  try {
-    const deleteFlowOperation = daix.deleteFlow({
-      sender: await signer.getAddress(),
-      receiver: recipient
-      // userData?: string
-    });
-
-    console.log(deleteFlowOperation);
-    console.log("Deleting your stream...");
-
-    const result = await deleteFlowOperation.exec(superSigner);
-    console.log(result);
-
-    console.log(
-      `Congrats - you've just updated a money stream!
-    `
-    );
-  } catch (error) {
-    console.log(
-      "Hmmm, your transaction threw an error. Make sure that this stream does not already exist, and that you've entered a valid Ethereum address!"
-    );
-    console.error(error);
-  }
-}
-
-//where the Superfluid logic takes place
-async function createNewFlow(recipient, flowRate) {
-  const provider = new ethers.providers.Web3Provider(window.ethereum);
-  await provider.send("eth_requestAccounts", []);
-
-  const signer = provider.getSigner();
-
-  const chainId = await window.ethereum.request({ method: "eth_chainId" });
-  const sf = await Framework.create({
-    chainId: Number(chainId),
-    provider: provider
-  });
-
-  const superSigner = sf.createSigner({ signer: signer });
-
-  console.log(signer, 'G$');
-  console.log(await superSigner.getAddress());
-  const daix = await sf.loadSuperToken("G$");
-
-  console.log(daix);
-
-  try {
-    const createFlowOperation = daix.createFlow({
-      sender: await superSigner.getAddress(),
-      receiver: recipient,
-      flowRate: flowRate
-      // userData?: string
-    });
-
-    console.log(createFlowOperation);
-    console.log("Creating your stream...");
-
-    const result = await createFlowOperation.exec(superSigner);
-    console.log(result);
-
-    console.log(
-      `Congrats - you've just created a money stream!
-    `
-    );
-  } catch (error) {
-    console.log(
-      "Hmmm, your transaction threw an error. Make sure that this stream does not already exist, and that you've entered a valid Ethereum address!"
-    );
-    console.error(error);
-  }
-}
-
-export const CreateFlow = ({ walletAddress }) => {
-  const [recipient, setRecipient] = useState("");
+export const CreateFlow = ({ currentAccount, setCurrentAccount,
+  recipient, setRecipient, flowRate, setFlowRate }) => {
+  // const [recipient, setRecipient] = useState("0x4606C1e6E956BE55a7D9024a0c6e218c588285d3");
   const [isButtonLoading, setIsButtonLoading] = useState(false);
-  const [flowRate, setFlowRate] = useState("");
+  // const [flowRate, setFlowRate] = useState("");
   const [flowRateDisplay, setFlowRateDisplay] = useState("");
-  const [currentAccount, setCurrentAccount] = useState("");
 
   const connectWallet = async () => {
     try {
