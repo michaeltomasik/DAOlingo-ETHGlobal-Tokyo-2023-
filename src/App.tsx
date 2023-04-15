@@ -8,6 +8,7 @@ import {
   IframeConfig,
   HuddleClientMethodName,
 } from "@huddle01/huddle01-iframe";
+import { CreateFlow } from "./components/createFlow";
 
 function App() {
   const [walletAddress, setWalletAddress] = useState("");
@@ -37,10 +38,10 @@ function App() {
   ];
 
   useEffect(() => {
-    huddleIframeApp.on(HuddleAppEvent.PEER_JOIN, (data) =>
+    huddleIframeApp.on(HuddleAppEvent.PEER_JOIN, (data: any) =>
       console.log({ iframeData: data })
     );
-    huddleIframeApp.on(HuddleAppEvent.PEER_LEFT, (data) =>
+    huddleIframeApp.on(HuddleAppEvent.PEER_LEFT, (data: any) =>
       console.log({ iframeData: data })
     );
   }, []);
@@ -50,7 +51,6 @@ function App() {
       <div className="container">
         <div>
           <br />
-
           {Object.keys(huddleIframeApp.methods)
             .filter((key) => !["sendReaction", "connectWallet"].includes(key))
             .map((key) => (
@@ -79,7 +79,7 @@ function App() {
         <input
           type="text"
           value={walletAddress}
-          onChange={(e) => setWalletAddress(e.target.value)}
+          onChange={(e: { target: { value: any; }; }) => setWalletAddress(e.target.value)}
           placeholder="Wallet Address"
         />
 
@@ -88,6 +88,7 @@ function App() {
         >
           Connect Wallet
         </button>
+        <CreateFlow walletAddress={walletAddress} />
       </div>
     </div>
   );

@@ -10,8 +10,10 @@
   },
   "dependencies": {
     "@huddle01/huddle01-iframe": "^0.0.8",
+    "@superfluid-finance/sdk-core": "^0.6.3",
     "react": "^18.0.0",
-    "react-dom": "^18.0.0"
+    "react-dom": "^18.0.0",
+    "react-bootstrap":"2.7.4"
   },
   "devDependencies": {
     "@types/react": "^18.0.0",
