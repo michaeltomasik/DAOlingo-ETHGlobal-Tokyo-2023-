@@ -1,5 +1,6 @@
 import { Framework } from "@superfluid-finance/sdk-core";
 import { ethers } from "ethers";
+import { superTokenName } from "./consts";
 
 //where the Superfluid logic takes place
 export const deleteExistingFlow = async (recipient) => {

@@ -8,7 +8,9 @@ import './RatePage.css'
 function RatePage({ nextStep,
   flowRate,
   setFlowRate,
+  setJoinedRoom,
 }) {
+  const [flowRateDisplay, setFlowRateDisplay] = useState("");
 
 
   function calculateFlowRate(amount) {
@@ -45,7 +47,10 @@ function RatePage({ nextStep,
       <br />
       <br />
       <br />
-      <button onClick={() => { nextStep(2) }}>NEXT</button>
+      <button onClick={() => {
+        nextStep(2)
+        setJoinedRoom(true)
+      }}>NEXT</button>
     </div>
   );
 }

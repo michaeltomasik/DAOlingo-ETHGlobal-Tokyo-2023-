@@ -10,16 +10,16 @@ function WelcomePage({ nextStep, connectToHuddle, setRoomURL, roomURL }) {
 
       <h3>Connect, practice, and Learn Different Languages with Ease</h3>
 
-      <div>
+      {/* <div>
         <input
           type="text"
           value={roomURL}
           onChange={(e: { target: { value: any; }; }) => setRoomURL(e.target.value)}
           placeholder="Room URL"
         />
-      </div>
+      </div> */}
       <button onClick={() => {
-        connectToHuddle();
+        // connectToHuddle();
         nextStep(1);
         }}>Connect</button>
 
